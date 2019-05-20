@@ -9,6 +9,7 @@ import br.com.chess.boardgame.Piece;
 import br.com.chess.boardgame.Position;
 import br.com.chess.chess.pieces.Bishop;
 import br.com.chess.chess.pieces.King;
+import br.com.chess.chess.pieces.Knight;
 import br.com.chess.chess.pieces.Pawn;
 import br.com.chess.chess.pieces.Rook;
 
@@ -191,6 +192,10 @@ public class ChessMatch {
 	}
 
 	private void initialSetup() {
+        placeNewPiece('b', 1, new Knight(board, Color.WHITE));
+        placeNewPiece('g', 1, new Knight(board, Color.WHITE));
+        placeNewPiece('b', 8, new Knight(board, Color.BLACK));
+        placeNewPiece('g', 8, new Knight(board, Color.BLACK));
 		placeNewPiece('f', 1, new Bishop(board, Color.WHITE));
 		placeNewPiece('c', 1, new Bishop(board, Color.WHITE));
 		placeNewPiece('c', 8, new Bishop(board, Color.BLACK));
