@@ -12,6 +12,7 @@ import br.com.chess.chess.pieces.King;
 import br.com.chess.chess.pieces.Knight;
 import br.com.chess.chess.pieces.Pawn;
 import br.com.chess.chess.pieces.Rook;
+import chess.pieces.Queen;
 
 public class ChessMatch {
 
@@ -74,6 +75,7 @@ public class ChessMatch {
 			undoMove(source, target, capturedPiece);
 			throw new ChessException("You can't put yourself in check");
 		}
+		check = (testCheck(opponent(currentPlayer))) ? true : false;
 
 		if (testCheckMate(opponent(currentPlayer))) {
 			checkMate = true;
@@ -192,6 +194,8 @@ public class ChessMatch {
 	}
 
 	private void initialSetup() {
+        placeNewPiece('d', 1, new Queen(board, Color.WHITE));
+        placeNewPiece('d', 8, new Queen(board, Color.BLACK));
         placeNewPiece('b', 1, new Knight(board, Color.WHITE));
         placeNewPiece('g', 1, new Knight(board, Color.WHITE));
         placeNewPiece('b', 8, new Knight(board, Color.BLACK));
